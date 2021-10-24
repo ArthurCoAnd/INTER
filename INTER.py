@@ -26,10 +26,10 @@ class Inter(Tk):
 		self.menu_métodos.add_command(label="Polarização Fixa TBJ", command=lambda: self.TrocarJanela(PFTBJ))
 		self.menu_métodos.add_command(label="Divisor de Tensão TBJ", command=lambda: self.TrocarJanela(DTTBJ))
 		self.menu_métodos.add_command(label="Seguidor Emissor TBJ", command=lambda: self.TrocarJanela(SETBJ))
-		self.menu_métodos.add_command(label="Base Comum TBJ", command=lambda: self.Teste("BCTBJ"))
-		self.menu_métodos.add_command(label="Polarização Fixa FET", command=lambda: self.Teste("PFFET"))
-		self.menu_métodos.add_command(label="Divisor de Tensão FET", command=lambda: self.Teste("DTFET"))
-		self.menu_métodos.add_command(label="Dreno Comum TBJ", command=lambda: self.Teste("DCTBJ"))
+		# self.menu_métodos.add_command(label="Base Comum TBJ", command=lambda: self.Teste("BCTBJ"))
+		# self.menu_métodos.add_command(label="Polarização Fixa FET", command=lambda: self.Teste("PFFET"))
+		# self.menu_métodos.add_command(label="Divisor de Tensão FET", command=lambda: self.Teste("DTFET"))
+		# self.menu_métodos.add_command(label="Dreno Comum TBJ", command=lambda: self.Teste("DCTBJ"))
 		self.menu.add_cascade(label="Circuitos", menu=self.menu_métodos)
 
 		self.janela = None
