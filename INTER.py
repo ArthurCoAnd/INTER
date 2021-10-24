@@ -59,7 +59,7 @@ def TocarHino():
 
 if __name__ == "__main__":
 	mixer.init()
-	# TocarHino()
+	TocarHino()
 	app = Inter()
 	app.resizable(False, False)
 	app.title("Inter")
