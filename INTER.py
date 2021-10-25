@@ -15,6 +15,10 @@ from pygame import mixer
 from Tools.PolarizaçãoFixaTBJ import PolarizaçãoFixaTBJ as PFTBJ
 from Tools.DivisorDeTensãoTBJ import DivisorDeTensãoTBJ as DTTBJ
 from Tools.SeguidorEmissorTBJ import SeguidorEmissorTBJ as SETBJ
+from Tools.BaseComumTBJ import BaseComumTBJ as BCTBJ
+from Tools.PolarizaçãoFixaFET import PolarizaçãoFixaFET as PFFET
+from Tools.DivisorDeTensãoFET import DivisorDeTensãoFET as DTFET
+from Tools.DrenoComumFET import DrenoComumFET as DCFET
 
 class Inter(Tk):
 	def __init__(self):
@@ -26,10 +30,10 @@ class Inter(Tk):
 		self.menu_métodos.add_command(label="Polarização Fixa TBJ", command=lambda: self.TrocarJanela(PFTBJ))
 		self.menu_métodos.add_command(label="Divisor de Tensão TBJ", command=lambda: self.TrocarJanela(DTTBJ))
 		self.menu_métodos.add_command(label="Seguidor Emissor TBJ", command=lambda: self.TrocarJanela(SETBJ))
-		# self.menu_métodos.add_command(label="Base Comum TBJ", command=lambda: self.Teste("BCTBJ"))
-		# self.menu_métodos.add_command(label="Polarização Fixa FET", command=lambda: self.Teste("PFFET"))
-		# self.menu_métodos.add_command(label="Divisor de Tensão FET", command=lambda: self.Teste("DTFET"))
-		# self.menu_métodos.add_command(label="Dreno Comum TBJ", command=lambda: self.Teste("DCTBJ"))
+		self.menu_métodos.add_command(label="Base Comum TBJ", command=lambda: self.TrocarJanela(BCTBJ))
+		self.menu_métodos.add_command(label="Polarização Fixa FET", command=lambda: self.TrocarJanela(PFFET))
+		self.menu_métodos.add_command(label="Divisor de Tensão FET", command=lambda: self.TrocarJanela(DTFET))
+		self.menu_métodos.add_command(label="Dreno Comum FET", command=lambda: self.TrocarJanela(DCFET))
 		self.menu.add_cascade(label="Circuitos", menu=self.menu_métodos)
 
 		self.janela = None
@@ -42,9 +46,6 @@ class Inter(Tk):
 			self.janela.destroy()
 		self.janela = novaJanela
 		self.janela.grid(row=0, column=0)
-
-	def Teste(self, t):
-		print(f"Teste - {t}")
 
 def resource_path(relative_path):
 	try:

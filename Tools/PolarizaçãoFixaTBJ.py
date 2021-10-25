@@ -6,7 +6,7 @@ from Tools.Ferramentas import paralelo
 class PolarizaçãoFixaTBJ(Frame):
 	def __init__(self, raiz):
 		Frame.__init__(self, raiz)
-		Label(self, text="Iterative Transistor Calculator\nPolarização Fixa TBJ").grid(row=0, column=0, columnspan=7)
+		Label(self, text="Iterative Transistor Calculater\nPolarização Fixa TBJ").grid(row=0, column=0, columnspan=7)
 		linha = 1
 
 		self.dados = {
@@ -30,14 +30,16 @@ class PolarizaçãoFixaTBJ(Frame):
 		# Ordem Saidas
 		self.t_saidas =  ["Ib", "Ie", "re", "Avnl", "Zi", "Zo"]
 		
+		self.entradas = []
 		self.var_entradas = []
 		self.var_saidas = []
-		for e in range((max([len(self.t_entradas),len(self.t_saidas)]))):
+		for e in range(max([len(self.t_entradas),len(self.t_saidas)])):
 			if e < len(self.t_entradas):
 				Label(self, text=self.t_entradas[e], width=5).grid(row=linha, column=0)
 				self.var_entradas.append(StringVar())
 				self.var_entradas[e].trace("w", self.calcular)
-				Entry(self, width=15, textvariable=self.var_entradas[e]).grid(row=linha, column=1)
+				self.entradas.append(Entry(self, width=15, textvariable=self.var_entradas[e], bg="red"))
+				self.entradas[e].grid(row=linha, column=1)
 				Label(self, text=self.dados[self.t_entradas[e]]["un"], width=3).grid(row=linha, column=2)
 			if e < len(self.t_saidas):
 				Label(self, text="", width=5).grid(row=linha, column=3)
@@ -52,7 +54,6 @@ class PolarizaçãoFixaTBJ(Frame):
 		self.lerDados()
 		self.dadosT2N()
 		self.calcularSaidas()
-		print(self.dados)
 
 	# Ler dados das entradas
 	def lerDados(self):
@@ -64,9 +65,10 @@ class PolarizaçãoFixaTBJ(Frame):
 		for e in range(len(self.t_entradas)):
 			try:
 				self.dados[self.t_entradas[e]]["val"] = float(self.dados[self.t_entradas[e]]["val"])
+				self.entradas[e].config(bg="white")
 			except:
 				self.dados[self.t_entradas[e]]["val"] = "-"
-		# print(self.dados)
+				self.entradas[e].config(bg="red")
 
 	# Tentar fazer os cálculos das saidas
 	def calcularSaidas(self):

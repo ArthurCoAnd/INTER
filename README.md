@@ -1,4 +1,4 @@
-# INTER - INterative Transistor calculatER
+# <img src="./Images/Inter.png" width="25"> INTER - INterative Transistor calculatER
 
 <a href="LICENSE">![Badge](https://img.shields.io/badge/license-BeerWare-yellow?style=for-the-badge)</a>
 
